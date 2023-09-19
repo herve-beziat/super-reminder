@@ -1,5 +1,7 @@
 <?php
 
+require_once('../config/db.php');
+
 class Users {
     private ?int $id;
     private ?string $login;
@@ -121,7 +123,8 @@ public static function logout() {
 }
 }
 
-$users = new Users();
-$users->register('test', 'test');
+// $users = new Users();
+// $users->register('test6', 'test');
 
 ?>
+
