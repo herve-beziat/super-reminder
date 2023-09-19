@@ -101,7 +101,7 @@ class Users {
                 $row = $request->fetch(PDO::FETCH_ASSOC);
                 
                 if (password_verify($password, $row['password'])) {
-                    session_start();
+                    // session_start();
                     $_SESSION['login'] = $login;
                     echo $mess_done;
                 } else {
