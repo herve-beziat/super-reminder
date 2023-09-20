@@ -1,5 +1,6 @@
 <form action="#" method="POST" id="form-subscribe">
     <h1>Inscription</h1>
+    <link rel="stylesheet" href="../assets/styles.css">
     <input type="text" name="login" id="login" placeholder="Login">
     <input type="password" name="password" id="password" placeholder="Mot de passe">
     <input type="password" name="conf-password" id="conf-password" placeholder="Confirmation de mot de passe">
