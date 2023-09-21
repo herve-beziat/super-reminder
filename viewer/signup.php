@@ -19,6 +19,7 @@ require_once '../controller/connexion.php';
     <script defer src="../script/signup.js"></script>
     <script defer src="../script/connexion.js"></script>
     <script defer src="../script/inscription.js"></script>
+    <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <?php require_once '../include/header.php';?>
 
