@@ -1,4 +1,4 @@
-<form action="#" method= "POST" id ="form-connexion">
+<form action="#" method="POST" id ="form-connexion">
     <h1>Connexion</h1>
     <input type="text" name="login" id="login" placeholder="Login">
     <input type="password" name="password" id="password" placeholder="Mot de passe">
