@@ -18,8 +18,8 @@ $test=$disTasks->displayTasks($user_id);
       <th>id</th>
       <th>Titre</th>
       <th>Description</th>
-      <th>Date</th>
       <th>Statut</th>
+      <th>Date</th>
       <th>Changer le statut</th>
     </tr>
     <?php foreach($test as $value) : ?>

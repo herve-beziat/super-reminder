@@ -1,6 +1,7 @@
 <?php
 
 require_once('../config/db.php');
+require_once('../src/Users.php');
 
 class Tasks {
     private ?int $id;
@@ -65,24 +66,26 @@ class Tasks {
     
 
 
-    public static function addTask($title, $description, $user_id) {
+    public static function addTask($title, $description) {
         require_once('../config/db.php');
         global $bdd;
     
         $title = trim(htmlspecialchars($title));
         $description = trim(htmlspecialchars($description));
-        $user_id = trim(htmlspecialchars($user_id));
     
         $mess_exist = "Tâche déjà existante";
         $champs_vide = "Veuillez remplir tous les champs";
         $mess_done = "Tâche ajoutée";
     
         // Statut par défaut : "In progress"
-        $state = "In progress";
+        $state = "Not Started";
     
-        if (empty($title) || empty($description) || empty($user_id)) {
+        if (empty($title) || empty($description)) {
             echo $champs_vide;
         } else {
+            session_start();
+            $user_id= Users::getUserIdByUsername();
+
             // Vérifier si une tâche avec le même titre existe déjà pour l'utilisateur
             $query_check = $bdd->prepare('SELECT COUNT(*) FROM tasks WHERE title = :title AND user_id = :user_id');
             $query_check->bindparam(':title', $title, PDO::PARAM_STR, 255);
@@ -135,7 +138,7 @@ class Tasks {
         $query = $bdd->prepare('SELECT tasks.id, tasks.title, tasks.description, tasks.state, tasks.date
                                 FROM tasks
                                 INNER JOIN users ON tasks.user_id = users.id
-                                WHERE users.id = user_id;
+                                WHERE users.id = :user_id;
         ');
         $query->bindparam(':user_id', $user_id, PDO::PARAM_INT, 11);
         $query->execute();
@@ -148,7 +151,7 @@ class Tasks {
 }
 
 //$tasks = new Tasks();
-// $tasks->addTask('testtitle1', 'testdescript2', '1');
+//$tasks->addTask('testtitle1ttttttttttttttttttttt', 'testtttttttttttt');
 //$tasks->displayTasks('1');
 
 ?>

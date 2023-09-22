@@ -2,6 +2,7 @@
 session_start();
 
 require_once '../src/Users.php';
+require_once '../src/Tasks.php';
 require_once '../config/db.php';
 require_once '../controller/profil.php';
 
@@ -27,7 +28,7 @@ require_once '../controller/profil.php';
                 <h2>Menu</h2>
             </div>
             <div class="container-left-bottom">
-                <ul>
+                <ul id="onglets" class="onglets">
                     <li><a href="./profil.php">Accueil</a></li>
                     <li><a href="#" id="load-tasks">Afficher la liste</a></li>
                     <li><a href="#" id="addTasksLink">Ajouter une tâche</a></li> 
