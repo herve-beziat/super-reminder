@@ -40,62 +40,7 @@ require_once '../controller/profil.php';
             </div>
             <div class="container-right-bottom">
                 <div id="container-profil">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Task Name</th>
-                                <th>Description</th>
-                                <th>Date</th>
-                                <th>Status</th>
-                                <th>Change Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Task 1</td>
-                                <td>Description for Task 1</td>
-                                <td>20/09/2023</td>
-                                <td>Completed</td>
-                                <td>
-                                    <select class="status-dropdown">
-                                        <option value="completed">Completed</option>
-                                        <option value="in_progress">In Progress</option>
-                                        <option value="not_started">Not Started</option>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Task 2</td>
-                                <td>Description for Task 2</td>
-                                <td>21/09/2023</td>
-                                <td>In Progress</td>
-                                <td>
-                                    <select class="status-dropdown">
-                                        <option value="in_progress">In Progress</option>
-                                        <option value="completed">Completed</option>
-                                        <option value="not_started">Not Started</option>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Task 3</td>
-                                <td>Description for Task 3</td>
-                                <td>22/09/2023</td>
-                                <td>Not Started</td>
-                                <td>
-                                    <select class="status-dropdown">
-                                        <option value="not_started">Not Started</option>
-                                        <option value="in_progress">In Progress</option>
-                                        <option value="completed">Completed</option>
-                                    </select>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    
                 </div>
             </div>
         </div>

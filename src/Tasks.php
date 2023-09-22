@@ -132,17 +132,23 @@ class Tasks {
 
         $user_id = trim(htmlspecialchars($user_id));
 
-        $query = $bdd->prepare('SELECT * FROM tasks WHERE user_id = :user_id');
+        $query = $bdd->prepare('SELECT tasks.id, tasks.title, tasks.description, tasks.state, tasks.date
+                                FROM tasks
+                                INNER JOIN users ON tasks.user_id = users.id
+                                WHERE users.id = user_id;
+        ');
         $query->bindparam(':user_id', $user_id, PDO::PARAM_INT, 11);
         $query->execute();
-        $result = $query->fetchAll();
+        $result = $query->fetchAll(PDO::FETCH_ASSOC);
 
         return $result;
     }
 
+
 }
 
-$tasks = new Tasks();
-$tasks->addTask('testtitle1', 'testdescript2', '1');
+//$tasks = new Tasks();
+// $tasks->addTask('testtitle1', 'testdescript2', '1');
+//$tasks->displayTasks('1');
 
 ?>

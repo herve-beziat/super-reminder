@@ -113,6 +113,20 @@ class Users {
         }
     }
 
+public static function getUserIdByUsername() {
+    require_once('../config/db.php');
+    global $bdd;
+
+    $username = $_SESSION['login'];
+
+    $query = $bdd->prepare('SELECT id FROM users WHERE login = :login');
+    $query->bindparam(':login', $username, PDO::PARAM_STR, 255);
+    $query->execute();
+    $result = $query->fetch(PDO::FETCH_ASSOC);
+
+    return $result['id'];
+}
+
 
 
 public static function logout() {
