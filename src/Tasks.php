@@ -83,7 +83,7 @@ class Tasks {
         if (empty($title) || empty($description)) {
             echo $champs_vide;
         } else {
-            session_start();
+            //session_start();
             $user_id= Users::getUserIdByUsername();
 
             // Vérifier si une tâche avec le même titre existe déjà pour l'utilisateur
@@ -147,11 +147,27 @@ class Tasks {
         return $result;
     }
 
+    public static function modifyState($id, $state) {
+        require_once('../config/db.php');
+        global $bdd;
+
+        $id = trim(htmlspecialchars($id));
+        $state = trim(htmlspecialchars($state));
+
+        $mess_done = "Statut modifié";
+
+        $query = $bdd->prepare('UPDATE tasks SET state = :state WHERE id = :id');
+        $query->bindparam(':id', $id, PDO::PARAM_INT, 11);
+        $query->bindparam(':state', $state, PDO::PARAM_STR, 255);
+        $query->execute();
+        echo $mess_done;
+    }
+
 
 }
 
 //$tasks = new Tasks();
-//$tasks->addTask('testtitle1ttttttttttttttttttttt', 'testtttttttttttt');
+//$tasks->addTask('test2', 'test2');
 //$tasks->displayTasks('1');
 
 ?>

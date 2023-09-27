@@ -5,6 +5,7 @@ require_once '../src/Users.php';
 require_once '../src/Tasks.php';
 require_once '../config/db.php';
 require_once '../controller/profil.php';
+require_once '../controller/tasks.php';
 
 ?>
 

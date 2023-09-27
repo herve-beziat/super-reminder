@@ -2,7 +2,7 @@
 
 
 if (isset($_POST['title']) && isset($_POST['description'])) {
-    echo Tasks::addTask($_POST['title'], $_POST['description'], $_SESSION['id']);
+    echo Tasks::addTask($_POST['title'], $_POST['description']);
     die();
 }
 
