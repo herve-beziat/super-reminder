@@ -6,10 +6,7 @@ require_once '../src/Tasks.php';
 require_once '../config/db.php';
 require_once '../controller/profil.php';
 require_once '../controller/tasks.php';
-
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +29,7 @@ require_once '../controller/tasks.php';
                 <ul id="onglets" class="onglets">
                     <li><a href="./profil.php">Accueil</a></li>
                     <li><a href="#" id="load-tasks">Afficher la liste</a></li>
-                    <li><a href="#" id="addTasksLink">Ajouter une tâche</a></li> 
+                    <li><a href="#" id="addTasksLink" class="btn">Ajouter une tâche</a></li> 
                 </ul>
             </div>
         </div>
