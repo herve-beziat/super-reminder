@@ -5,7 +5,7 @@
 $db = "mysql:host=localhost;dbname=super-reminder";
 
 $host="root";
-$password="";
+$password="Romain-1964";
 
 try {
     $bdd = new PDO($db, $host, $password);
