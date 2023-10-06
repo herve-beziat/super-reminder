@@ -23,7 +23,7 @@ $test=$disTasks->displayTasks($user_id);
       <th>Changer le statut</th>
     </tr>
     <?php foreach($test as $value) : ?>
-    <tr>
+    <tr  data-id="<?= $value['id'] ?>">
       <td><?= $value['id'] ?></td>
       <td><?= $value['title'] ?></td>
       <td><?= $value['description'] ?></td>
