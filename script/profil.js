@@ -30,21 +30,7 @@ function loadContent(url) {
         });
 }
 
-// const form = document.getElementById("form-addTask");
-// const message = document.getElementById("message-form");
-
-// form.addEventListener("submit", function (event) {
-//     event.preventDefault();
-
-//     const title = document.getElementById("title").value;
-//     const description = document.getElementById("description").value;
-
-//     const formData = new FormData();
-//     formData.append("title", title);
-//     formData.append("description", description);
-
     
-
     async function postData(data) {
         try {
             const response = await fetch("../viewer/addTask.php", {
@@ -69,22 +55,54 @@ function loadContent(url) {
         }
     }
     
+// document.addEventListener("DOMContentLoaded", function() { 
+//     const form = document.getElementById("form-addTask");
     
-    const form = document.getElementById("form-addTask");
+//     form.addEventListener("submit", async function (event) {
+//         event.preventDefault();
     
-    form.addEventListener("submit", async function (event) {
-        event.preventDefault();
+//         const title = document.getElementById("title").value;
+//         const description = document.getElementById("description").value;
     
-        const title = document.getElementById("title").value;
-        const description = document.getElementById("description").value;
+//         const formData = new FormData();
+//         formData.append("title", title);
+//         formData.append("description", description);
     
-        const formData = new FormData();
-        formData.append("title", title);
-        formData.append("description", description);
-    
-        await postData(formData);
+//         await postData(formData);
+//     });
+
+// });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const statusDropdowns = document.querySelectorAll(".status-dropdown");
+
+    statusDropdowns.forEach(function (dropdown) {
+       dropdown.addEventListener("change", function () {
+          const selectedOption = dropdown.options[dropdown.selectedIndex];
+          const selectedStatus = selectedOption.value;
+          const taskId = dropdown.closest("tr").dataset.id;
+
+          fetch("../controller/profil.php", {
+             method: "POST",
+             body: JSON.stringify({ id: taskId, state: selectedStatus }),
+             headers: {
+                "Content-Type": "application/json",
+             },
+          })
+             .then(function (response) {
+                if (response.ok) {
+                   return response.text();
+                }
+                throw new Error("La requête a échoué.");
+             })
+             .then(function (message) {
+                console.log(message); // Affichez un message de confirmation ou faites autre chose si nécessaire
+             })
+             .catch(function (error) {
+                console.error(error);
+             });
+       });
     });
-
-
-      
+ });
 
