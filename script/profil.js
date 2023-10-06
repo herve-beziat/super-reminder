@@ -12,6 +12,8 @@ addTasksLink.addEventListener('click', function (event) {
     loadContent('../viewer/addTask.php');
 });
 
+
+
 function loadContent(url) {
     fetch(url)
         .then(function (response) {
@@ -45,7 +47,7 @@ function loadContent(url) {
 
     async function postData(data) {
         try {
-            const response = await fetch("../viewer/profil.php", {
+            const response = await fetch("../viewer/addTask.php", {
                 method: "POST",
                 body: data
             });
@@ -67,6 +69,7 @@ function loadContent(url) {
         }
     }
     
+    
     const form = document.getElementById("form-addTask");
     
     form.addEventListener("submit", async function (event) {
@@ -81,5 +84,7 @@ function loadContent(url) {
     
         await postData(formData);
     });
-    
+
+
+      
 
